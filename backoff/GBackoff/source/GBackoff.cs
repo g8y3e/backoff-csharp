@@ -43,21 +43,21 @@ namespace gbase {
             random_ = new Random();
         }
 
-        public double getDuration() {
-            double duration = calculateTime();
+        public double GetDuration() {
+            double duration = CalculateTime();
             attempt_++;
             return duration;
         }
 
-        public int getAttempt() {
+        public int GetAttempt() {
             return attempt_;
         }
 
-        public void reset() {
+        public void Reset() {
             attempt_ = 0;
         }
 
-        private double calculateTime() {
+        private double CalculateTime() {
             double duration = minTime_ * Math.Pow(maxTime_, factorTime_);
 
             if (isJitter_) {

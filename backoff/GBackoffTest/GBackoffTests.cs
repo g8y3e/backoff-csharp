@@ -7,7 +7,7 @@ namespace gbase {
     [TestFixture]
     public class GBackoffTest {
         [Test]
-        public void testDefaultValue() {
+        public void TestDefaultValue() {
             Assert.True(true);
         }
     }
