@@ -1,6 +1,7 @@
 # GBackoff
 [![License][license-image]][license-url]
 [![Docs][docs-image]][docs-url]
+[![Build status][travis-image]][travis-url]
 
 A simple backoff algorithm in C#
 
@@ -23,3 +24,5 @@ Enabling `Jitter` adding randomization to the backoff durations. [See Amazon's w
 [license-url]: LICENSE
 [docs-image]: https://img.shields.io/badge/docs-latest-blue.svg
 [docs-url]: https://g8y3e.github.io/void-engine/
+[travis-image]: https://travis-ci.org/g8y3e/backoff-csharp.svg?branch=master
+[travis-url]: https://travis-ci.org/g8y3e/backoff-csharp
