@@ -26,7 +26,7 @@ namespace gbase {
         /// <param name="isJitter">Is jitter.</param>
         public Backoff(double minTime = 0, double maxTime = 0, int factorTime = 0, 
                        bool isJitter = false) {
-            attempt_ = 0;
+            attempt_ = 0; 
 
             factorTime_ = factorTime;
 
