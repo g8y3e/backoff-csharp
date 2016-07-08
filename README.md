@@ -23,6 +23,6 @@ Adding randomization to the backoff durations. [See Amazon's writeup of performa
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: LICENSE
 [docs-image]: https://img.shields.io/badge/docs-latest-blue.svg
-[docs-url]: https://g8y3e.github.io/void-engine/
+[docs-url]: https://g8y3e.github.io/backoff-csharp/
 [travis-image]: https://travis-ci.org/g8y3e/backoff-csharp.svg?branch=master
 [travis-url]: https://travis-ci.org/g8y3e/backoff-csharp

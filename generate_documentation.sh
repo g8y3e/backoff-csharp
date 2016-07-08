@@ -4,9 +4,9 @@ TARGET_BRANCH="gh-pages"
 mkdir $TARGET_BRANCH
 cd $TARGET_BRANCH
  
-git clone -b $TARGET_BRANCH --single-branch https://github.com/g8y3e/backoff-chasrp.git
+git clone -b $TARGET_BRANCH --single-branch https://github.com/g8y3e/backoff-csharp.git
 
-cd void-engine
+cd backoff-csharp
 cp -r ../../docs/html/* .
 
 git add .

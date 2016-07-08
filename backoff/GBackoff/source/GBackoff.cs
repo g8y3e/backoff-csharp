@@ -6,7 +6,7 @@ namespace gbase {
 
         private static int DEFAULT_FACTOR_TIME_ = 2;
 
-        private double minTime_;
+        private double minTime_; 
         private double maxTime_;
 
         private int factorTime_;
@@ -17,6 +17,13 @@ namespace gbase {
         private Random random_;
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:gbase.Backoff"/> class.
+        /// </summary>
+        /// <param name="minTime">Minimum time.</param>
+        /// <param name="maxTime">Max time.</param>
+        /// <param name="factorTime">Factor time.</param>
+        /// <param name="isJitter">Is jitter.</param>
         public Backoff(double minTime = 0, double maxTime = 0, int factorTime = 0, 
                        bool isJitter = false) {
             attempt_ = 0;
