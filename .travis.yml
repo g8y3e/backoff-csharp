@@ -1,6 +1,7 @@
 language: csharp
 solution: backoff/GBackoff/GBackoff.sln
 install:
+  - nuget install Xamarin.Forms
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
   - nuget install coveralls.net -Version 0.5.0 -OutputDirectory coveralls
   - sudo apt-get install gtk-sharp2
