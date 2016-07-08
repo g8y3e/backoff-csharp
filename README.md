@@ -14,7 +14,7 @@ A simple backoff algorithm in C#
 
 ### Example using `Jitter`
 
-Enabling `Jitter` adding randomization to the backoff durations. [See Amazon's writeup of performance gains using jitter](http://www.awsarchitectureblog.com/2015/03/backoff.html).
+Adding randomization to the backoff durations. [See Amazon's writeup of performance gains using jitter](http://www.awsarchitectureblog.com/2015/03/backoff.html).
 
 ```csharp
 ```

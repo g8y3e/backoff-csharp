@@ -14,7 +14,7 @@ install:
   - ./configure
   - make
   - sudo make install
-  - cd ../../unosquare/embedio
+  - cd ../../g8y3e/backoff-csharp
 script:
   - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
