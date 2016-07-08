@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBackoff", "GBackoff\GBackoff.csproj", "{31569A6A-4CE9-46F4-AFFD-465AF9FC5147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBackoffTest", "..\GBackoffTest\GBackoffTest.csproj", "{965EC420-DED8-420D-9A9D-0A440061FEB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GBackoffTests", "..\GBackoffTests\GBackoffTests.csproj", "{49741F7D-2E72-4A70-86AF-2045CAEC5243}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{31569A6A-4CE9-46F4-AFFD-465AF9FC5147}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31569A6A-4CE9-46F4-AFFD-465AF9FC5147}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31569A6A-4CE9-46F4-AFFD-465AF9FC5147}.Release|Any CPU.Build.0 = Release|Any CPU
-		{965EC420-DED8-420D-9A9D-0A440061FEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{965EC420-DED8-420D-9A9D-0A440061FEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{965EC420-DED8-420D-9A9D-0A440061FEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{965EC420-DED8-420D-9A9D-0A440061FEB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49741F7D-2E72-4A70-86AF-2045CAEC5243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49741F7D-2E72-4A70-86AF-2045CAEC5243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49741F7D-2E72-4A70-86AF-2045CAEC5243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49741F7D-2E72-4A70-86AF-2045CAEC5243}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
