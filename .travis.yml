@@ -25,7 +25,9 @@ script:
   - export LD_LIBRARY_PATH=/usr/local/lib
 
   - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
- 
+
+  - cp ./backoff/GBackoff/GBackoff/bin/Release/GBackoff.dll.mdb ./backoff/GBackoffTests/bin/Release
+
   - mono --profile=monocov:outfile=monocovCoverage.cov,+GBackoff ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
 
