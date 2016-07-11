@@ -2,6 +2,7 @@ os:
   - linux
 language: csharp
 solution: backoff/GBackoff/GBackoff.sln
+sudo: required
 install:
   - nuget install NUnit.Runners -Version 2.6.3 -OutputDirectory testrunner
   - nuget install coveralls.net -Version 0.6.0 -OutputDirectory coveralls
@@ -21,8 +22,13 @@ install:
   # return to source directory
   - cd ../../g8y3e/backoff-csharp
 script:
-  - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
+
+  - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
+  - cd ./backoff/GBackoffTests/bin/Release/
+  - ls -1
+  - cd ../../../../
+ 
   - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.Runners.2.6.3/tools/nunit-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
