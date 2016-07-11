@@ -38,5 +38,11 @@
   <ItemGroup>
     <Compile Include="Test.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GBackoff\GBackoff\GBackoff.csproj">
+      <Project>{31569A6A-4CE9-46F4-AFFD-465AF9FC5147}</Project>
+      <Name>GBackoff</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
