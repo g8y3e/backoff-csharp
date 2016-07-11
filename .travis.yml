@@ -28,7 +28,9 @@ script:
  
   - mono --profile=monocov:outfile=monocovCoverage.cov,+GBackoff ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
-  - ls ./monocovCoverage
+  - cd ./monocovCoverage
+  - ls 
+  - cd ..
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
