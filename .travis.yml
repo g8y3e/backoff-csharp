@@ -5,7 +5,7 @@ solution: backoff/GBackoff/GBackoff.sln
 sudo: required
 install:
   - nuget install NUnit.Runners -Version 3.2.1 -OutputDirectory testrunner
-  - nuget install coveralls.net -Version 0.6.0 -OutputDirectory coveralls
+  - nuget install coveralls.net -Version 0.6.0 -OutputDirectory testrunner
   - sudo apt-get install gtk-sharp2
   # install mono cecil
   - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
@@ -25,13 +25,10 @@ script:
   - export LD_LIBRARY_PATH=/usr/local/lib
 
   - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
-  - cd ./backoff/GBackoffTests/bin/Release/
-  - ls -1
-  - cd ../../../../
  
-  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
+  - mono --profile=monocov:outfile=monocovCoverage.cov+GBackoff ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-  - mono ./coveralls/coveralls.net.0.6.0/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken "5BXSvdSTPJ1zesNUlAr4LVM52nw3iDsrA" --commitId $TRAVIS_COMMIT --commitBranch "$TRAVIS_BRANCH" --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName "travis-ci"  --useRelativePaths
+  - mono ./testrunner/coveralls.net.0.6.0/tools/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken "5BXSvdSTPJ1zesNUlAr4LVM52nw3iDsrA" --commitId $TRAVIS_COMMIT --commitBranch "$TRAVIS_BRANCH" --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName "travis-ci"  --useRelativePaths
