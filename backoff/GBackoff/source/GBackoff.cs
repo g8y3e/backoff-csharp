@@ -1,6 +1,6 @@
 ﻿using System;
 namespace gbase {
-    public class Backoff {
+    public class Backoff { 
         private static double DEFAULT_MIN_TIME_ = 1;
         private static double DEFAULT_MAX_TIME_ = 10;
 
