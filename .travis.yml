@@ -26,7 +26,7 @@ script:
 
   - xbuild /p:Configuration=Release backoff/GBackoff/GBackoff.sln
  
-  - mono --profile=monocov:outfile=monocovCoverage.cov+GBackoff ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
+  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
