@@ -4,7 +4,7 @@ language: csharp
 solution: backoff/GBackoff/GBackoff.sln
 sudo: required
 install:
-  - nuget install NUnit.Runners -Version 2.6.3 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
   - nuget install coveralls.net -Version 0.6.0 -OutputDirectory coveralls
   - sudo apt-get install gtk-sharp2
   # install mono cecil
@@ -29,7 +29,7 @@ script:
   - ls -1
   - cd ../../../../
  
-  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.Runners.2.6.3/tools/nunit-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
+  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
