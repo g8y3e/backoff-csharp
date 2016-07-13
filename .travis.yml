@@ -1,6 +1,8 @@
 os:
   - linux
 language: csharp
+mono:
+  - 4.2.3
 solution: ./backoff/GBackoff/GBackoff.sln
 sudo: required
 install:
