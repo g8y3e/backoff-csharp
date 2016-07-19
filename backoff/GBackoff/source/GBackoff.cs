@@ -65,7 +65,7 @@ namespace gbase {
         }
 
         private double CalculateTime() {
-            double duration = minTime_ * Math.Pow(maxTime_, factorTime_);
+            double duration = minTime_ * Math.Pow(factorTime_, attempt_);
 
             if (isJitter_) {
                 duration = (random_.NextDouble() * (duration - minTime_)) + minTime_;

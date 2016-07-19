@@ -36,7 +36,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="GbackoffTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GBackoff\GBackoff\GBackoff.csproj">

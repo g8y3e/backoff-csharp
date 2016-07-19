@@ -2,12 +2,11 @@ os:
   - linux
 language: csharp
 mono:
-  - 4.2.3
+  - 4.0.0
 solution: ./backoff/GBackoff/GBackoff.sln
 sudo: required
 install:
   - nuget restore ./backoff/GBackoff/GBackoff.sln
-  #- nuget install NUnit.Runners -Version 3.2.1 -OutputDirectory testrunner
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
   - nuget install coveralls.net -Version 0.6.0 -OutputDirectory testrunner
   - sudo apt-get install gtk-sharp2
@@ -27,26 +26,22 @@ install:
   - cd ../../g8y3e/backoff-csharp
 script:
   - export LD_LIBRARY_PATH=/usr/local/lib
-  - xbuild /p:Configuration=Release ./backoff/Test1/Test1.sln
-  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./backoff/Test1/Test1/bin/Release/Test1.dll
+  - xbuild /p:Configuration=Release ./backoff/GBackoff/GBackoff.sln
+  - mono --profile=monocov:outfile=monocovCoverage.cov ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./backoff/GBackoff/GBackoffTests/bin/Release/GBackoffTests.dll
   - monocov --export-xml=monocovCoverage monocovCoverage.cov
   - cat monocovCoverage.cov
   - ls monocovCoverage
-#  - xbuild /p:Configuration=Release ./backoff/GBackoff/GBackoff.sln
-#  - mono --profile=monocov:outfile=monocovCoverage.cov,+[GBackoff] ./testrunner/NUnit.ConsoleRunner.3.2.1/tools/nunit3-console.exe ./backoff/GBackoffTests/bin/Release/GBackoffTests.dll
-#  - monocov --export-xml=monocovCoverage monocovCoverage.cov
-#  - cat monocovCoverage.cov
-#  - ls monocovCoverage
-#
-#  - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
-#  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
-#  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-#
-#  - echo $TRAVIS_COMMIT
-#  - echo $TRAVIS_BRANCH
-#  - echo $REPO_COMMIT_AUTHOR
-#  - echo $REPO_COMMIT_AUTHOR_EMAIL
-#  - echo $REPO_COMMIT_MESSAGE
-#  - echo $TRAVIS_JOB_ID
-#
-#  - mono ./testrunner/coveralls.net.0.6.0/tools/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken "5BXSvdSTPJ1zesNUlAr4LVM52nw3iDsrA" --commitId $TRAVIS_COMMIT --commitBranch "$TRAVIS_BRANCH" --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID --serviceName "travis-ci" --useRelativePaths
+- REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
+  - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
+  - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
+ 
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_BRANCH
+  - echo $REPO_COMMIT_AUTHOR
+  - echo $REPO_COMMIT_AUTHOR_EMAIL
+  - echo $REPO_COMMIT_MESSAGE
+  - echo $TRAVIS_JOB_ID
+
+  - ls ./monocovCoverage/
+
+  - mono ./testrunner/coveralls.net.0.6.0/tools/csmacnz.Coveralls.exe --monocov -i ./monocovCoverage --repoToken "5BXSvdSTPJ1zesNUlAr4LVM52nw3iDsrA" --commitId $TRAVIS_COMMIT --commitBranch "$TRAVIS_BRANCH" --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID --serviceName "travis-ci" --useRelativePaths
