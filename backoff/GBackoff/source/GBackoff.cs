@@ -40,7 +40,7 @@ namespace gbase {
             minTime_ = minTime;
         }
 
-        public double getMinTime() {
+        public double GetMinTime() {
             return minTime_;
         }
 
