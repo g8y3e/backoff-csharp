@@ -32,7 +32,7 @@ namespace gbase {
 
                 int expectedAttempt = 0;
 
-                Assert.AreNotEqual(expectedAttempt, backoff.GetAttempt());
+                Assert.AreEqual(expectedAttempt, backoff.GetAttempt());
             }
 
             [Test]
@@ -41,7 +41,7 @@ namespace gbase {
 
                 double firstDuration = backoff.GetDuration();
                 double secondDuration = backoff.GetDuration();
-                Assert.AreNotEqual(firstDuration * 2, secondDuration);
+                Assert.AreEqual(firstDuration * 2, secondDuration);
             }
 
             [Test]
