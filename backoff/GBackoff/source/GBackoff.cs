@@ -24,30 +24,44 @@ namespace gbase {
         /// <param name="maxTime">Max time.</param>
         /// <param name="factorTime">Factor time.</param>
         /// <param name="isJitter">Is jitter.</param>
-        public Backoff(double minTime = 0, double maxTime = 0, int factorTime = 0, 
-                       bool isJitter = false) {
+        public Backoff() {
             attempt_ = 0; 
 
-            factorTime_ = factorTime;
-
-            minTime_ = minTime;
-            maxTime_ = maxTime;
-
-            if (factorTime_ <= 0.00001) {
-                factorTime_ = DEFAULT_FACTOR_TIME_;
-            }
-
-            if (minTime_ <= 0.00001) {
-                minTime_ = DEFAULT_MIN_TIME_;
-            }
-
-            if (maxTime_ <= 0.00002) {
-                maxTime_ = DEFAULT_MAX_TIME_;
-            }
-
-            isJitter_ = isJitter;
+            factorTime_ = DEFAULT_FACTOR_TIME_;
+           
+            minTime_ = DEFAULT_MIN_TIME_;
+            maxTime_ = DEFAULT_MAX_TIME_;
+            isJitter_ = false;
 
             random_ = new Random();
+        }
+
+        public void SetMinTime(double minTime) {
+            minTime_ = minTime;
+        }
+
+        public double getMinTime() {
+            return minTime_;
+        }
+
+        public void SetMaxTime(double maxTime) {
+            maxTime_ = maxTime;
+        }
+
+        public double GetMaxTime() {
+            return maxTime_;
+        }
+
+        public void SetFactorTime(int factorTime) {
+            factorTime_ = factorTime;
+        }
+
+        public int GetFactorTime() {
+            return factorTime_;
+        }
+
+        public void EnableJitter(bool isJitter) {
+            isJitter_ = isJitter;
         }
 
         public double GetDuration() {

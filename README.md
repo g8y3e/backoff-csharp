@@ -10,6 +10,10 @@ A simple backoff algorithm in C#
 #### Simple example
 
 ```csharp
+ var backoff = new gbase.Backoff();
+
+double firstDuration = backoff.GetDuration(); // will be 1
+double secondDuration = backoff.GetDuration(); // will be 2 ... etc.
 ```
 
 ### Example using `Jitter`
@@ -17,6 +21,7 @@ A simple backoff algorithm in C#
 Adding randomization to the backoff durations. [See Amazon's writeup of performance gains using jitter](http://www.awsarchitectureblog.com/2015/03/backoff.html).
 
 ```csharp
+var backoff = new gbase.Backoff(0, 0, 0, true); // last bool variable is enabling Jitter
 ```
 
 
