@@ -21,7 +21,8 @@ double secondDuration = backoff.GetDuration(); // will be 2 ... etc.
 Adding randomization to the backoff durations. [See Amazon's writeup of performance gains using jitter](http://www.awsarchitectureblog.com/2015/03/backoff.html).
 
 ```csharp
-var backoff = new gbase.Backoff(0, 0, 0, true); // last bool variable is enabling Jitter
+var backoff = new gbase.Backoff();
+backoff.EnableJitter(true); // enable Jitter
 ```
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
