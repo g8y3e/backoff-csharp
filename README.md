@@ -23,9 +23,8 @@ Adding randomization to the backoff durations. [See Amazon's writeup of performa
 ```csharp
 var backoff = new gbase.Backoff(0, 0, 0, true); // last bool variable is enabling Jitter
 ```
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
-[license-image]: https://github.com/g8y3e/backoff-csharp/blob/dev/license.svg?style=flat-square
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/g8y3e/backoff-csharp/blob/dev/LICENSE
 [docs-image]: https://img.shields.io/badge/docs-latest-blue.svg
 [docs-url]: https://g8y3e.github.io/backoff-csharp/

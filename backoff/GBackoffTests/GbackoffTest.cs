@@ -15,7 +15,9 @@ namespace gbase {
 
             [Test]
             public void TestWithJitter() {
-                var backoff = new gbase.Backoff(0, 0, 0, true);
+                var backoff = new gbase.Backoff();
+
+                backoff.EnableJitter(true);
 
                 double firstDuration = backoff.GetDuration();
                 double secondDuration = backoff.GetDuration();
