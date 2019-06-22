@@ -1,12 +1,14 @@
 ﻿using System;
-namespace gbase {
-    public class Backoff { 
-        private static double DEFAULT_MIN_TIME_ = 1;
-        private static double DEFAULT_MAX_TIME_ = 10;
+namespace gbase
+{
+    public class Backoff
+    {
+        private const double DEFAULT_MIN_TIME_ = 1;
+        private const double DEFAULT_MAX_TIME_ = 10;
 
-        private static int DEFAULT_FACTOR_TIME_ = 2;
+        private const int DEFAULT_FACTOR_TIME_ = 2;
 
-        private double minTime_; 
+        private double minTime_;
         private double maxTime_;
 
         private int factorTime_;
@@ -24,68 +26,82 @@ namespace gbase {
         /// <param name="maxTime">Max time.</param>
         /// <param name="factorTime">Factor time.</param>
         /// <param name="isJitter">Is jitter.</param>
-        public Backoff() {
-            attempt_ = 0; 
+        public Backoff(bool isJitter = true, double minTime = DEFAULT_MIN_TIME_, double maxTime = DEFAULT_MAX_TIME_, int factorTime = DEFAULT_FACTOR_TIME_)
+        {
+            attempt_ = 0;
 
-            factorTime_ = DEFAULT_FACTOR_TIME_;
-           
-            minTime_ = DEFAULT_MIN_TIME_;
-            maxTime_ = DEFAULT_MAX_TIME_;
-            isJitter_ = false;
+            factorTime_ = factorTime;
+
+            minTime_ = minTime;
+            maxTime_ = maxTime;
+            isJitter_ = isJitter;
 
             random_ = new Random();
         }
 
-        public void SetMinTime(double minTime) {
+        public void SetMinTime(double minTime)
+        {
             minTime_ = minTime;
         }
 
-        public double GetMinTime() {
+        public double GetMinTime()
+        {
             return minTime_;
         }
 
-        public void SetMaxTime(double maxTime) {
+        public void SetMaxTime(double maxTime)
+        {
             maxTime_ = maxTime;
         }
 
-        public double GetMaxTime() {
+        public double GetMaxTime()
+        {
             return maxTime_;
         }
 
-        public void SetFactorTime(int factorTime) {
+        public void SetFactorTime(int factorTime)
+        {
             factorTime_ = factorTime;
         }
 
-        public int GetFactorTime() {
+        public int GetFactorTime()
+        {
             return factorTime_;
         }
 
-        public void EnableJitter(bool isJitter) {
+        public void EnableJitter(bool isJitter)
+        {
             isJitter_ = isJitter;
         }
 
-        public double GetDuration() {
+        public double GetDuration()
+        {
             double duration = CalculateTime();
             attempt_++;
             return duration;
         }
 
-        public int GetAttempt() {
+        public int GetAttempt()
+        {
             return attempt_;
         }
 
-        public void Reset() {
+        public void Reset()
+        {
             attempt_ = 0;
         }
 
-        private double CalculateTime() {
+        private double CalculateTime()
+        {
             double duration = minTime_ * Math.Pow(factorTime_, attempt_);
 
-            if (isJitter_) {
+            if (isJitter_)
+            {
                 duration = (random_.NextDouble() * (duration - minTime_)) + minTime_;
             }
 
-            if (duration > maxTime_) {
+            if (duration > maxTime_)
+            {
                 duration = maxTime_;
             }
 
